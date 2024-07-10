@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css" />
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/windbarb.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+
+    <!--wind-js-leaflet-->
+    <link rel="stylesheet" href="../dist/leaflet-velocity.css" />
+    <script src="../dist/leaflet-velocity.js"></script>
+
+    <style>
+        html,body,div,h1,h2,h3,h4,h5,p,button,text,input {
+            font-family: "Sriracha", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="container">
+        <form id="locationForm">
+            <div id="inputContainer">
+                <button>Home</button>
+                <input type="text" id="location" placeholder="Enter a location">
+            </div>
+            <div id="searchContainer" style="display: none;">
+                <ul id="searchResults"></ul>
+            </div>
+        </form>
+        <div id="weatherDisplay"></div>
+    </div>
+    <button id="parameterButton">เลือกข้อมูลสำหรับแสดงผล</button>
+    <div id="parameterList" style="display: none;">
+        <ul>
+            <li>ความกดอากาศ</li>
+            <li>อุณหภูมิ</li>
+            <li>ความชื้น</li>
+            <li>ความเร็วลม</li>
+            <li>ปริมาณฝนสะสม 3 ชั่วโมง</li>
+        </ul>
+    </div>
+    <button id="levelButton">ระดับชั้นความสูง</button>
+    <div id="levelList" style="display: none;">
+        <ul>
+            <li>ระดับผิวพื้น</li>
+            <li>ระดับ 925 hPa</li>
+            <li>ระดับ 850 hPa</li>
+            <li>ระดับ 700 hPa</li>
+            <li>ระดับ 500 hPa</li>
+            <li>ระดับ 300 hPa</li>
+            <li>ระดับ 200 hPa</li>
+        </ul>
+    </div>
+    <div id="datepickerContainer">
+        <div id="dateLabel"></div>
+        <div id="datepicker"></div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="meteogramContainer"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
